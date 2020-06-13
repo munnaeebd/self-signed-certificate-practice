@@ -22,5 +22,13 @@ openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
  
  docker build -t ssl-test1:1 .
  docker run -d -p 80:80 -p 443:443 ssl-test1:1
+ ~~~
+ 
+http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html 
+ 
+ 
+ 
+ 
+ 
  
  
