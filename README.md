@@ -19,7 +19,10 @@ openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
  mv server.crt ssl.crt
  
  openssl x509 -in ssl.crt -text -noout
+ ~~~
  
+ Docker container deploy:
+ ~~~
  docker build -t ssl-test1:1 .
  docker run -d -p 80:80 -p 443:443 ssl-test1:1
  ~~~
