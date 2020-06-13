@@ -51,3 +51,10 @@ openssl x509 \
        -in domain.csr \
        -req -days 365 -out domain.crt
 ~~~
+
+openssl req -text -noout -verify -in domain.csr
+
+openssl x509 -text -noout -in domain.crt
+
+openssl verify -verbose -CAFile ca.crt domain.crt
+
