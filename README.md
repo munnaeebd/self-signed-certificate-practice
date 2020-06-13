@@ -26,9 +26,28 @@ openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
  
 http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html 
  
- 
- 
- 
- 
- 
- 
+https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
+
+
+
+This command creates a 2048-bit private key (domain.key) and a CSR (domain.csr) from scratch:
+  ~~~
+  openssl req \
+       -newkey rsa:2048 -nodes -keyout domain.key \
+       -out domain.csr
+~~~       
+
+This command creates a new CSR (domain.csr) based on an existing private key (domain.key):
+~~~
+openssl req \
+       -key domain.key \
+       -new -out domain.csr
+~~~
+
+This command creates a self-signed certificate (domain.crt) from an existing private key (domain.key) and (domain.csr):
+~~~
+openssl x509 \
+       -signkey domain.key \
+       -in domain.csr \
+       -req -days 365 -out domain.crt
+~~~
