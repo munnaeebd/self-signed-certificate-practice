@@ -5,6 +5,9 @@ self-signed-certificate-practice
 Step 1: Generate a Private Key
 openssl genrsa -des3 -out server.key 1024
 
+or without passphrase:  
+openssl genrsa  -out server.key 2048
+
 Step 2: Generate a CSR (Certificate Signing Request)
 openssl req -new -key server.key -out server.csr
 
